@@ -1,0 +1,283 @@
+body {
+    margin: 0%;
+    padding: 0%;
+}
+
+/* dataTable Main Page Position */
+
+.DataTableContainer {
+    width: 100%;
+    height: 100vh;
+    padding: 50px;
+    position: relative;
+}
+
+/* header Part Creation */
+
+.headerCreation {
+    min-width: 100%;
+    min-height: 120px;
+}
+
+.headerIconAndButtonCreation {
+    position: relative;
+    height: 65px;
+}
+
+.headingSpan {
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: capitalize;
+    color: rgb(22, 22, 22);
+}
+
+.editButton {
+    position: absolute;
+    right: 0%;
+    padding: 10px 12px 10px 50px;
+    border: 0;
+    outline: 0;
+    background: rgb(234, 248, 234);
+    color: #21ba45;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer
+}
+
+.EditIcon {
+    position: absolute;
+    right: 47px;
+    z-index: 999;
+    top: 6px;
+    cursor: pointer;
+}
+
+.headerInformationText {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    height: 60px;
+    max-width: 60%;
+    font-size: 16px;
+    color: gray;
+    margin-bottom: 30px;
+}
+
+.headerInformationText .headerInformationTextFirstType {
+    text-align: left;
+    border-right: 2px solid lightgray;
+}
+
+.headerInformationText .headerInformationTextSecondType {
+    height: 100%;
+    text-align: center;
+    border-right: 2px solid lightgray;
+}
+
+.headerInformationText .headerInformationTextThirdType {
+    height: 100%;
+    text-align: right;
+}
+
+.headerInformationTextSecondTypeSpan {
+    position: relative;
+    top: 10px;
+}
+
+.headerInformationTextFirstTypeSpanRight {
+    position: relative;
+    left: 15px;
+    color: black
+}
+
+.headerInformationTextSecondTypeSpan .headerInformationTextFirstTypeSpanRight {
+    position: relative;
+    top: 10px;
+}
+
+
+/* Table Creation */
+
+.TableCreation {
+    margin-bottom: 80px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    position: relative;
+    top: 35px;
+    color: rgb(36, 36, 36);
+    text-transform: capitalize;
+    text-align: center;
+}
+
+th, td {
+    text-align: left;
+    padding: 15px;
+}
+
+td {
+    color: gray;
+}
+
+th {
+    background: rgb(232, 232, 232);
+    height: 62px
+}
+
+tr:nth-child(even) {
+    background: rgb(247, 247, 247);
+}
+
+.tableColumsRow:last-child {
+    border-bottom: 2px solid rgb(232, 232, 232);
+}
+
+.ItemsColumn {
+    color: rgb(84, 164, 184);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.arrowIcon {
+    position: absolute;
+    left: 30px;
+    top: 23px;
+    cursor: pointer;
+}
+
+.DeleteAndEditIcon {
+    display: grid;
+    width: 160px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.profile {
+    position: relative;
+    padding-left: 0;
+}
+
+.profileName {
+    position: absolute;
+    padding: 5px;
+    color: darkslategray;
+    font-size: 16px;
+}
+
+.tableHead1 {
+    width: 150px;
+}
+
+.tableHead2 {
+    width: 250px;
+}
+
+.tableHead3 {
+    width: 250px;
+}
+
+.tableHead4 {
+    width: 250px;
+}
+
+.tableHead7 {
+    width: 250px;
+}
+
+/* PopUpModal Creation */
+
+.popUpModalCreation {
+    min-width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    text-align: center;
+    background: #7676769e;
+    top: 0%;
+    left: 0%;
+}
+
+.popUpModalInputAndButtonDivision {
+    width: 525px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px;
+    background: #ffffffeb;
+}
+
+.popUpModalInputAndButtonDivision .inputAndTextField p {
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: blue;
+    position: relative;
+    left: -63px;
+}
+
+.popUpModalInputAndButtonDivision .inputAndTextField input {
+    width: 320px;
+    font-size: 18px;
+    padding: 10px;
+    padding-left: 3px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    transition: 0.3s;
+    background: transparent;
+}
+
+.popUpModalInputAndButtonDivision .inputAndTextField input:focus {
+    border-bottom: 1px solid blue;
+}
+
+.CancelAndDeleteButton {
+    position: relative;
+    top: 55px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.CancelAndDeleteButton .cancelButton {
+    padding: 9px 20px;
+    outline: none;
+    border: 0;
+    border-radius: 4px;
+    background: #ff2e2e;
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.CancelAndDeleteButton .deleteButton {
+    padding: 9px 20px;
+    outline: none;
+    border: 0;
+    border-radius: 4px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.CancelAndDeleteButton .NonDisabled {
+    color: white;
+    background: green;;
+}
+.cancelIcon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1050px) {
+    .headerInformationText {
+        max-width: 75%;
+        font-size: 15px;
+    }
+}
