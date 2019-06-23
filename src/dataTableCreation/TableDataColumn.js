@@ -3,18 +3,15 @@ import { Icon } from 'semantic-ui-react';
 import User from './user.png';
 
 export const TableDataColumn = (props) => {
-    return (
-        <tbody>
-        {props.slicedData.map((col, i) => {
-            return (
+    return ( 
                 <tr className="tableColumsRow">
-                    <td className="tebleCol1">{col.cell1}</td>
+                    <td className="tebleCol1">{props.index+1}</td>
                     <td className="tebleCol2 profile" >
                         <img src={User} alt="" width="30px" height="30px" />
-                        <span className="profileName">{col.cell2}</span>
+                        <span className="profileName">{props.Data.key}</span>
                     </td>
-                    <td className="tebleCol3 ItemsColumn">{col.cell3}</td>
-                    <td className="tebleCol4">{col.cell4}</td>
+                    <td className="tebleCol3 ItemsColumn">{props.Data.flag}</td>
+                    <td className="tebleCol4">{props.Data.text}</td>
                     <td className="tebleCol7 DeleteAndEditIcon" >
                         <Icon name="edit outline" color="green"
                             style={{
@@ -25,10 +22,10 @@ export const TableDataColumn = (props) => {
                                 borderRadius: '3px',
                                 cursor: 'pointer',
                                 position: 'relative',
-                            }}
+                            }} 
                             onClick={props.Edit} />  
                         <Icon name="trash alternate"
-                            color="red"
+                            color="black"
                             style={{
                                 width: '35px',
                                 height: '32px',
@@ -40,8 +37,6 @@ export const TableDataColumn = (props) => {
                             onClick={props.Delete} />
                     </td>
                 </tr>
-            )
-        })}
-    </tbody>
+                
     )
 }

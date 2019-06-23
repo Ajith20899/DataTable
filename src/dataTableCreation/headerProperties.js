@@ -26,11 +26,6 @@ export default class HeaderCreation extends React.Component {
     render() {
         return (
             <div className="headerCreation">
-
-                {/* popUpModal Functional Component call */}
-
-                {/* {this.state.editButton ? <PopUpModal/> : null} */}
-                
                 <div className="headerIconAndButtonCreation">
                     <span className="headingSpan">Data Table List</span>
                     <Icon className="EditIcon" name="edit outline" color="green" size='large'></Icon>

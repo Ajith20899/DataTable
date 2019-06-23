@@ -3,7 +3,6 @@ import '../Generics/common.css';
 import 'semantic-ui-css/semantic.min.css';
 import HeaderProperties from './headerProperties.js';
 import TableCreation from './tableCreation';
-import FooterCreation from './footerCreation';
 
 // Data Table Main Page Container
 
@@ -20,11 +19,6 @@ class DataTable extends React.Component {
                 {/* Data Table function call  */}
                 <div>
                     <TableCreation />
-                </div>
-
-                {/* Data Table Footer function call  */}
-                <div>
-                    <FooterCreation />
                 </div>
                 
             </div>
