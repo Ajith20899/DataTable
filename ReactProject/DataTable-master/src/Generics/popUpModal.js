@@ -12,7 +12,7 @@ class PopUpModal extends React.Component {
         this.setState({
             GetInputValue: e.target.value
         },()=>{
-            if( this.state.GetInputValue === 'CONFIRM' ) {
+            if( this.state.GetInputValue === 'confirm' ) {
                 this.setState({
                     InputMethod : false,
                 })
@@ -27,10 +27,10 @@ class PopUpModal extends React.Component {
                 <div className="popUpModalCreation">
                     <div className="popUpModalInputAndButtonDivision">
                         <div className="cancelIconDivision">
-                            <Icon name="cancel" size="large" className="cancelIcon" onClick={this.props.cancel} />
+                            <Icon name="cancel" size="large" color="grey" className="cancelIcon" onClick={this.props.cancel} />
                         </div>
                         <div className="inputAndTextField">
-                            <p>Please Type 'CONFIRM'...</p>
+                            <p>Please Type 'confirm'...</p>
                             <input type="text" onChange={this.getInput} value={this.state.GetInputValue} />
                         </div>
                         <div className="CancelAndDeleteButton">
@@ -43,7 +43,7 @@ class PopUpModal extends React.Component {
                 </div> : null}
             </React.Fragment>
         )
-    }
+    }   
 }
 
 export default PopUpModal;

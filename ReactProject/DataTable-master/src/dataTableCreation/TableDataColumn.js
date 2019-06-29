@@ -5,13 +5,15 @@ import User from './user.png';
 export const TableDataColumn = (props) => {
     return (
         <tr className="tableColumsRow">
-            <td className="tebleCol1">{props.data.name}</td>
+            <td className="tebleColumn1 id">{props.data.id}</td>
             <td className="tebleCol2 profile" >
-                <img src={User} alt="" width="30px" height="30px" />
-                <span className="profileName">{props.data.position}</span>
+                <img src={User} alt="" width="35px" height="35px" />
+                <span className="profileName">{props.data.name}</span> 
+                <span className="profileRollNo">{props.data.rollNo}</span>
             </td>
-            <td className="tebleCol3 ItemsColumn">{props.data.age}</td>
-            <td className="tebleCol4">{props.data.salary}</td>
+            <td className="tebleCol3 ItemsColumn">{props.data.email}</td>
+            <td className="tebleCol4">{props.data.phoneNo}</td>
+            <td className="tebleCol4">{props.data.status}</td>
             <td className="tebleCol7 DeleteAndEditIcon" >
                 <Icon name="edit outline" color="green"
                     style={{
@@ -23,7 +25,7 @@ export const TableDataColumn = (props) => {
                         cursor: 'pointer',
                         position: 'relative',
                     }}
-                    onClick={props.Edit} />
+                    onClick={props.edit} />
                 <Icon name="trash alternate"
                     color="red"
                     style={{

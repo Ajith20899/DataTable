@@ -10,8 +10,8 @@ export const Search = props => {
 
     return (
         <div className="searchContainer">
-            <div className="searchDiv" onMouseOver={autoFocus} > 
-                <input className="searchInput" type="text" onChange={props.search} ref={textInput}  value={props.searchValue} />
+            <div className="searchDiv" onMouseOver={autoFocus} >
+                <input className="searchInput" type="text" onChange={props.search} ref={textInput} value={props.value} />
                 <img src="https://img.icons8.com/metro/26/ffffff/search.png" alt="" />
             </div>
         </div>

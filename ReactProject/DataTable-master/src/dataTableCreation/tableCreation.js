@@ -4,51 +4,54 @@ import { TableHeaderColumn } from './TableHeaderColumn';
 import { TableDataColumn } from './TableDataColumn';
 import PopUpModal from '../Generics/popUpModal';
 import { Search } from './searchComponent';
+import { EditPopUpModal } from './editPopUpModal';
 
 
 class TableCreation extends React.Component {
 
 	state = {
-		slicedData: data.slice(0, 5),
-		deleteRowIndex: '',
-		arrowIconChange: true,
-		editAndDeleteIconChange: '',
+		filterData: data,
+		RowIndex: '',
 		deleteMethodChange: false,
+		editButton: false,
 		cancelButton: true,
-		searchValue: ''
+		searchValue: '',
+		email: '',
+		phoneNo: '',
+		emailArray: ''
 	};
-
-	handlePagination = (start, rowsPerPage) => {
-		this.setState({ slicedData: data.slice(start, start + rowsPerPage) });
-	};
-
-	arrow = () => {
-		this.setState({
-			arrowIconChange: !this.state.arrowIconChange
-		})
-	}
 
 	deleteIconPopUpModal = (i) => {
 		this.setState({
 			deleteMethodChange: true,
-			deleteRowIndex: i,
+			RowIndex: i,
 			cancelButton: true
 		})
 	}
 
 	deleteRow = () => {
-		let storeArr = [...this.state.slicedData];
-		let index = this.state.deleteRowIndex;
+		let storeArr = [...this.state.filterData];
+		let index = this.state.RowIndex;
 		storeArr.splice(index, 1);
 		this.setState({
-			slicedData: storeArr,
+			filterData: storeArr,
 			deleteMethodChange: false
 		});
 	}
 
+	edit = (i) => {
+		this.setState({
+			editButton: true,
+			RowIndex: i,
+			email: this.state.filterData[i].email,
+			phoneNo: this.state.filterData[i].phoneNo
+		})
+	}
+
 	cancel = () => {
 		this.setState({
-			cancelButton: false
+			cancelButton: false,
+			editButton: false
 		})
 	}
 
@@ -58,9 +61,36 @@ class TableCreation extends React.Component {
 		})
 	}
 
-	render() {
+	getEmail = (e) => {
+		this.setState({
+			email: e.target.value
+		})
+	}
 
-		let filterData = data.filter(cloumnData => {
+	getPhoneNo = (e) => {
+		this.setState({
+			phoneNo: e.target.value
+		})
+	}
+
+	update = () => {
+		let Email = this.state.email;
+		let filter = data;
+		filter[this.state.RowIndex].email = this.state.email;
+		console.log()
+		if( Email === '' && Email === null ) {
+			return false 
+		}
+		else {
+			this.setState({
+				filterData : filter,
+				editButton: false
+			},()=>console.log(this.state.filterData))
+		}
+	}
+
+	render() {
+		let filterData = this.state.filterData.filter(cloumnData => {
 			return cloumnData.name.toLowerCase().indexOf(this.state.searchValue.toLowerCase()) !== -1;
 		})
 
@@ -68,17 +98,30 @@ class TableCreation extends React.Component {
 			<div className="TableContainer">
 				<Search search={this.search} value={this.state.searchValue} />
 				<div className="TableCreation">
-					<table> 
-						<TableHeaderColumn Headers={Headers} arrowIconChange={this.state.arrowIconChange} arrow={this.arrow} />
+					<table>
+						<TableHeaderColumn Headers={Headers} arrowIconChange={this.state.arrowIconChange} />
 						<tbody>
-							{filterData.slice(0,5).map((data, i) => {
+							{filterData.map((data, i) => {
 								return (
-									<TableDataColumn data={data} key={i} Edit={this.Edit} Delete={this.deleteIconPopUpModal.bind(this, i)} />
+									<TableDataColumn data={data}
+										key={i} edit={this.edit.bind(this, data.id - 1)} Delete={this.deleteIconPopUpModal.bind(this, data.id - 1)} />
 								)
 							})}
-						</tbody> 
+						</tbody>
 					</table>
 				</div>
+				{this.state.editButton ?
+					<EditPopUpModal editButton={this.state.editButton}
+						update={this.update}
+						cancel={this.cancel}
+						Data={this.state.filterData}
+						Email={this.state.email}
+						PhoneNo={this.state.phoneNo}
+						getEmail={this.getEmail.bind(this)}
+						getPhoneNo={this.getPhoneNo.bind(this)}
+						index={this.state.RowIndex}
+					/> : null
+				}
 				{
 					this.state.deleteMethodChange ?
 						<PopUpModal cancelButton={this.state.cancelButton} deleteRow={this.deleteRow} cancel={this.cancel} /> : null
