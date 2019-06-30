@@ -6,9 +6,9 @@ export const EditPopUpModal = (props) => {
             <div className="editContainer"> 
                 <div className="editInputContainer">
                     <p>update the fields</p> 
-                    <input type="text" disabled={true} value={props.Data[props.index].id +' (disabled)'} className="editInput" />
-                    <input type="text" disabled={true} value={props.Data[props.index].name+' (disabled)'} className="editInput" />
-                    <input disabled={true} value={props.Data[props.index].status+' (disabled)'} className="editInput" />
+                    <input type="text" disabled={true} value={props.Data[props.index].id } className="editInput" />
+                    <input type="text" disabled={true} value={props.Data[props.index].name} className="editInput" />
+                    <input disabled={true} value={props.Data[props.index].status} className="editInput" />
                     <input type="email" onChange={props.getEmail} value={props.Email} className="editInput" />
                     <input type="text" onChange={props.getPhoneNo} value={props.PhoneNo} className="editInput" />
                 </div>

@@ -18,7 +18,6 @@ class TableCreation extends React.Component {
 		searchValue: '',
 		email: '',
 		phoneNo: '',
-		emailArray: ''
 	};
 
 	deleteIconPopUpModal = (i) => {
@@ -36,7 +35,7 @@ class TableCreation extends React.Component {
 		this.setState({
 			filterData: storeArr,
 			deleteMethodChange: false
-		});
+		},()=>console.log(this.state.filterData));
 	}
 
 	edit = (i) => {
@@ -74,18 +73,17 @@ class TableCreation extends React.Component {
 	}
 
 	update = () => {
-		let Email = this.state.email;
-		let filter = data;
+		let filter = this.state.filterData;
 		filter[this.state.RowIndex].email = this.state.email;
-		console.log()
-		if( Email === '' && Email === null ) {
+		filter[this.state.RowIndex].phoneNo = this.state.phoneNo;
+		if( this.state.email === '' && this.state.email === null ) {
 			return false 
 		}
 		else {
 			this.setState({
 				filterData : filter,
 				editButton: false
-			},()=>console.log(this.state.filterData))
+			})
 		}
 	}
 
